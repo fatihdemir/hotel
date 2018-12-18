@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Şehir seçimi" class="sapUiPopupWithPadding" search="_handleBolgeHelpSearch"
+		confirm="_handleBolgeHelpClose" cancel="_HelpDialogClose">
+		<StandardListItem title="Adana"/>
+		<StandardListItem title="Ankara"/>
+		<StandardListItem title="Antalya"/>
+		<StandardListItem title="Elazığ"/>
+		<StandardListItem title="İstanbul"/>
+	</SelectDialog>
+</core:FragmentDefinition>
+<!--
+items="{/SehirlerSet}" 
+-->

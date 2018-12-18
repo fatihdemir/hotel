@@ -1,0 +1,75 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZHVL_TEST_OTEL_SRV" xml:lang="tr" sap:schema-version="1">
+            <EntityType Name="Main" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OtelNo"/>
+                </Key>
+                <Property Name="OtelNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Otel No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OtelAdi" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Otel Adı"/>
+                <Property Name="OtelAdresi" Type="Edm.String" Nullable="false" MaxLength="90" sap:label="Otel Adresi"/>
+                <Property Name="OtelSehri" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Otel Şehri"/>
+                <Property Name="OtelUrl" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Otel Website"/>
+                <Property Name="OtelTelefon" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Otel Telefon"/>
+            </EntityType>
+            <EntityType Name="Oda" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OtelNo"/>
+                    <PropertyRef Name="OdaNo"/>
+                </Key>
+                <Property Name="OtelNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Otel No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OdaNo" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Oda No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OdaKat" Type="Edm.Int32" Nullable="false" sap:label="Oda Katı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SigaraIcilir" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Sigara İçilir" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OdaTipi" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Oda Tipi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Musteri" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MusteriNo"/>
+                </Key>
+                <Property Name="MusteriNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Müşteri Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriAdi" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Müşteri Adı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriSoyadi" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Müşteri Soyadı" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriAdres" Type="Edm.String" Nullable="false" MaxLength="120" sap:label="Müşteri Adresi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriTelefon" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Müşteri Telefonu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriEmail" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Müşteri Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Rezervasyon" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OtelNo"/>
+                    <PropertyRef Name="OdaNo"/>
+                    <PropertyRef Name="RezervNo"/>
+                </Key>
+                <Property Name="OtelNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Otel No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OdaNo" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Oda No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RezervNo" Type="Edm.Int32" Nullable="false" sap:label="Rezervasyon Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Baslangic" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Başlangıç Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bitis" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Bitiş Tarihi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MusteriNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:label="Müşteri Numarası" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Fiyat_Bedeli" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FiyatNo"/>
+                </Key>
+                <Property Name="FiyatNo" Type="Edm.Int32" Nullable="false" sap:label="Fiyat No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fiyat" Type="Edm.Decimal" Nullable="false" Precision="8" Scale="3" sap:unit="FiyatBirimi" sap:label="Fiyat" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FiyatBirimi" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Fiyat Birimi" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+            </EntityType>
+            <EntityContainer Name="ZHVL_TEST_OTEL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MainSet" EntityType="ZHVL_TEST_OTEL_SRV.Main" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="OdaSet" EntityType="ZHVL_TEST_OTEL_SRV.Oda" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="MusteriSet" EntityType="ZHVL_TEST_OTEL_SRV.Musteri" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="RezervasyonSet" EntityType="ZHVL_TEST_OTEL_SRV.Rezervasyon" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="FiyatSet" EntityType="ZHVL_TEST_OTEL_SRV.Fiyat_Bedeli" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://10.200.243.40:443/sap/opu/odata/sap/ZHVL_TEST_OTEL_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://10.200.243.40:443/sap/opu/odata/sap/ZHVL_TEST_OTEL_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

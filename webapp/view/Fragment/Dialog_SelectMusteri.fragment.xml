@@ -1,0 +1,12 @@
+<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">-->
+<!--	<SelectDialog id="searchField" title="Müşteri seçimi" items="{/MusteriSet}" class="sapUiPopupWithPadding" search="_handleMusteriHelpSearch"-->
+<!--		confirm="_handleMusteriHelpClose" cancel="_HelpDialogClose">-->
+<!--		<StandardListItem title="{MusteriAdi}"/>-->
+<!--	</SelectDialog>-->
+<!--</core:FragmentDefinition>-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="searchField" noDataText="No Products Found" title="Müşteri seçimi" search="_handleMusteriHelpSearch" confirm="_handleMusteriHelpClose" 
+		cancel="_HelpDialogClose" items="{path: '/MusteriSet', parameters : { operationMode : 'Client'}}">
+		<StandardListItem title="{MusteriAdi}" description="{MusteriSoyadi}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

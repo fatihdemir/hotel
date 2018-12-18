@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar">
+	<Table id="rezervasyon_table" noDataText="{worklistView>/tableNoDataText}" busy="{rezervasyonDataLoad>/busy}" busyIndicatorDelay="0" growing="true"
+		mode="SingleSelectLeft" items="{ path: 'Rezervasyonlar' }" growingThreshold="8" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<headerToolbar>
+			<OverflowToolbar id="rezervasyon_SearchToolbar">
+				<!--<Text id="rezervasyon_tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+				<ToolbarSpacer/>
+				<SearchField id="rezervasyon_searchSorting" liveChange="rezervasyon_onFilter" placeholder="Listelenen Rezervasyonlar Arasında Ara (Rezervasyon No)">
+					<layoutData>
+						<OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/>
+					</layoutData>
+				</SearchField>
+				<OverflowToolbarToggleButton icon="sap-icon://vertical-grip" enabled="false"/>
+				<Button id="rezervasyon_Ekle" icon="sap-icon://add" text="Ekle" press="rezervasyonCreate"/>
+				<Button id="rezervasyon_duzenle" icon="sap-icon://edit" text="Düzenle" press="rezervasyonUpdate"/>
+				<Button id="rezervasyon_sil" icon="sap-icon://delete" text="Sil" press="rezervasyonDelete"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="20%">
+				<header>
+					<Label text="Rezervasyon No"/>
+				</header>
+			</Column>
+			<Column width="20%">
+				<header>
+					<Label text="Müşteri No"/>
+				</header>
+			</Column>
+			<Column width="30%">
+				<header>
+					<Label text="Başlangıç Tarihi"/>
+				</header>
+			</Column>
+			<Column width="30%">
+				<header>
+					<Label text="Bitiş Tarihi"/>
+				</header>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" id="rezervasyon_Listed1" press="onPress">
+				<cells>
+					<Text text="{path:'RezervNo', formatter:'.formatter.zeroClear'}" id="rezervasyon_rezervasyonno_text"/>
+					<Text text="{path:'MusteriNo', formatter:'.formatter.zeroClear'}" id="rezervasyon_musterino"/>
+					<Text text="{path:'Baslangic', formatter:'.formatter.formatDateValue'}" id="rezervasyon_baslangic_tarihi"/>
+					<Text text="{path:'Bitis', formatter:'.formatter.formatDateValue'}" id="rezervasyon_bitis_tarihi"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

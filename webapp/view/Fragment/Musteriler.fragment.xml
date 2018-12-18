@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar">
+	<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+		<fb:filterItems>
+			<fb:FilterItem name="musteri_musterino" label="Müşteri No">
+				<fb:control>
+					<Input id="musteri_noFiltre" type="Text" liveChange="musteri_noFilter"/>
+				</fb:control>
+			</fb:FilterItem>
+		</fb:filterItems>
+	</fb:FilterBar>
+	<Table id="musteri_table" noDataText="{worklistView>/tableNoDataText}" busy="{odaDataLoad>/busy}" busyIndicatorDelay="0" growing="true"
+		mode="SingleSelectLeft" items="{ path: '/MusteriSet' }" growingThreshold="8" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<headerToolbar>
+			<OverflowToolbar id="musteri_SearchToolbar">
+				<!--<Text id="musteri_tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+				<ToolbarSpacer/>
+				<SearchField id="musteri_SearchField" tooltip="{i18n>worklistSearchTooltip}" search="musteri_OnSearch" liveChange="onFilter" width="30%"
+					placeholder="Listelenen Oteller Arasında Ara"></SearchField>
+				<OverflowToolbarToggleButton icon="sap-icon://vertical-grip" enabled="false"/>
+				<Button id="musteri_Ekle" icon="sap-icon://add" text="Ekle" press="musteriCreate"/>
+				<Button id="musteri_duzenle" icon="sap-icon://edit" text="Düzenle" press="musteriUpdate"/>
+				<Button id="musteri_sil" icon="sap-icon://delete" text="Sil" press="musteriDelete"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="10%">
+				<header>
+					<Label text="Müşteri No"/>
+				</header>
+			</Column>
+			<Column width="15%">
+				<header>
+					<Label text="Müşteri Adı"/>
+				</header>
+			</Column>
+			<Column width="15%">
+				<header>
+					<Label text="Müşteri Soyadı"/>
+				</header>
+			</Column>
+			<Column width="25%">
+				<header>
+					<Label text="Müşteri Adres"/>
+				</header>
+			</Column>
+			<Column width="12%">
+				<header>
+					<Label text="Müşteri Telefon"/>
+				</header>
+			</Column>
+			<Column width="15%">
+				<header>
+					<Label text="Müşteri Email"/>
+				</header>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" id="musteri_Listed1" press="onPress">
+				<cells>
+					<Text text="{path:'MusteriNo', formatter:'.formatter.zeroClear'}" id="musteri_no_text"/>
+					<Text text="{MusteriAdi}" id="musteri_adi_text"/>
+					<Text text="{MusteriSoyadi}" id="musteri_soyadi_text"/>
+					<Text text="{MusteriAdres}" id="musteri_adres_text"/>
+					<Text text="{path:'MusteriTelefon', formatter:'.formatter.zeroClear'}" id="musteri_telefon_text"/>
+					<Text text="{MusteriEmail}" id="musteri_email_text"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

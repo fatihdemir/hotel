@@ -1,0 +1,14 @@
+<mvc:View controllerName="com.havelsan.HOTEL.controller.OdaDetail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<Page navButtonPress="onNavBack" showNavButton="true">
+		<IconTabBar id="iconTabBarOdaDetail" class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter id="rezervasyon_fragment" icon="sap-icon://customer" text="Rezervasyonlar" iconColor="Critical" key="rezervasyon">
+					<core:Fragment fragmentName="com.havelsan.HOTEL.view.Fragment.Rezervasyonlar" type="XML"/>
+				</IconTabFilter>
+				<IconTabFilter id="fiyat_fragment" icon="sap-icon://lead" text="Fiyatlar" iconColor="Critical" key="fiyat">
+					<core:Fragment fragmentName="com.havelsan.HOTEL.view.Fragment.Fiyatlar" type="XML"/>
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+	</Page>
+</mvc:View>

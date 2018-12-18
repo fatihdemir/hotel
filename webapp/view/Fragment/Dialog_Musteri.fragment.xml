@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="createMusteriDialog" title="{i18n>MusteriEkle}" afterClose="onDialogAfterClose" draggable="true">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>musterino}" labelFor="musterino"/>
+				<Input type="Text" id="musteriNo" liveChange="formChange"/>
+				<Label text="{i18n>musteriadi}" labelFor="musteriadi"/>
+				<Input type="Text" id="musteriAdi" liveChange="formChange"/>
+				<Label text="{i18n>musterisoyadi}" labelFor="musterisoyadi"/>
+				<Input type="Text" id="musteriSoyadi" liveChange="formChange"/>
+				<Label text="{i18n>musteritelefon}" labelFor="musteritelefon"/>
+				<Input type="Tel" id="musteriTelefon" liveChange="formChange"/>
+				<Label text="{i18n>musteriemail}" labelFor="musteriemail"/>
+				<Input type="Email" id="musteriEmail" liveChange="formChange"/>
+				<Label text="{i18n>musteriadres}" labelFor="musteriadres"/>
+				<TextArea id="musteriAdres" liveChange="formChange" />
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="{i18n>Kapat}" press="onCloseDialog" icon="sap-icon://decline"/>
+			<Button id="musteriCreateButton" text="{i18n>Kaydet}" press="onPressCreateButton" icon="sap-icon://save" type="Accept" visible="false"/>
+			<Button id="musteriUpdateButton" text="{i18n>BilgileriDuzenle}" press="onPressUpdateButton" icon="sap-icon://edit" type="Accept"
+				visible="false"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

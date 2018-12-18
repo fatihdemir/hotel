@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="selectOtel" contentWidth="30rem" title="{i18n>selectOtelTitle}" afterClose="onDialogAfterClose" draggable="true">
+		<Table id="selectMusteriTable" items="{ path: '/MusteriSet'}" noDataText="{i18n>OtelNoDataText}" busy="{selectOtelTable>/busy}">
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>otelList}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active" press="onItemSelect">
+					<cells>
+						<Text text="{MusteriNo} - {MusteriAdi} {MusteriSoyadi}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<beginButton>
+			<Button text="{i18n>Kapat}" press="onCloseDialog" icon="sap-icon://decline"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

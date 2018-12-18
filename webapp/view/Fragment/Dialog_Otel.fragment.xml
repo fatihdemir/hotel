@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="createOtelDialog" title="{i18n>OtelEkle}" afterClose="onDialogAfterClose" draggable="true">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>oteladi}" labelFor="oteladi"/>
+				<Input type="Text" id="otelAdi" liveChange="formChange"/>
+				<Label text="{i18n>oteltelefon}" labelFor="oteltelefon"/>
+				<Input type="Text" id="otelTelefon" liveChange="formChange"/>
+				<Label text="{i18n>otelurl}" labelFor="otelurl"/>
+				<Input type="Text" id="otelUrl" liveChange="formChange"/>
+				<Label text="{i18n>oteladres}" labelFor="oteladres"/>
+				<TextArea id="otelAdres" liveChange="formChange" />
+				<Label text="{i18n>otelsehri}" labelFor="otelsehri"/>
+				<Input type="Text" id="otelSehri" liveChange="formChange"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="{i18n>Kapat}" press="onCloseDialog" icon="sap-icon://decline"/>
+			<Button id="createButton" text="{i18n>Kaydet}" press="onPressCreateButton" icon="sap-icon://save" type="Accept" visible="false"/>
+			<Button id="updateButton" text="{i18n>BilgileriDuzenle}" press="onPressUpdateButton" icon="sap-icon://edit" type="Accept" visible="false"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

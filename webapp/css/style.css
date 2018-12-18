@@ -1,0 +1,57 @@
+.sapMShellContent {
+	overflow:hidden;
+}
+
+.sapMITBContent {
+	padding:0 !important;
+}
+/* Küçük Düzenle - Sil Butonları */
+.sapMSegBBtn.sapMSegBBtnSel {
+    background: #ffffff !important;
+    color: #346187 !important;
+    border-color: #bfbfbf !important;
+}
+
+.sapMSegBBtn.sapMSegBBtnFocusable.sapMSegBBtnSel {
+	border-right: 1px solid #bfbfbf;
+}
+
+.sapMSegBBtn.sapMSegBBtnSel .sapUiIcon {
+	color:#346187;
+}
+
+html.sap-desktop .sapMSegBBtnFocusable:hover {
+	background:#fff;
+}
+
+.sapMSegBBtn.sapMSegBBtnFocusable.sapMSegBBtnSel:hover, .sapMSegBBtnFocusable.sapMBtnActive:hover, html.sap-desktop .sapMSegBBtn.sapMSegBBtnFocusable.sapMSegBBtnSel:hover, html.sap-desktop .sapMSegBBtnFocusable.sapMBtnActive:hover {
+	background:#eee;
+}
+
+.lowercase .sapMObjectAttributeText {
+	text-transform: lowercase;
+}
+
+ul.sapMSegB.sapMSegBIcons li:hover span {
+    background: #5496cd;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.oda_colored_status {
+	padding: 3px 10px;
+	border-radius: 3px;
+    color: #fff !important;
+}
+
+.oda_status.dolu {
+	background-color:#a70404;
+}
+
+.oda_status.bos {
+	background-color:#319839;
+}
+
+.oda_musteri, .oda_tarih {
+    background-color: #47b4bf;
+}

@@ -1,0 +1,96 @@
+<mvc:View controllerName="com.havelsan.HOTEL.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns:f="sap.ui.layout.form" xmlns:fb="sap.ui.comp.filterbar">
+	<App>
+		<pages>
+			<Page>
+				<content>
+					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+						<fb:filterItems>
+							<fb:FilterItem name="sehir" label="Şehir" mandatory="true">
+								<fb:control>
+									<Input id="sehir" valueHelpRequest="sehirlerDialogOpen" showValueHelp="true" type="Text" valueHelpOnly="true">
+										<suggestionItems>
+											<core:Item key="01" text="Adana"/>
+											<core:Item key="06" text="Ankara"/>
+										</suggestionItems>
+									</Input>
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="oteladi" label="Otel Adı">
+								<fb:control>
+									<Input id="otelAdiFiltre" type="Text" liveChange="oteladiOnFilter"/>
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+					<Table id="tableHotel" items="{ path: '/MainSet', parameters : { operationMode : 'Client'}, sorter: { path: 'OtelNo', descending: false }}" noDataText="{worklistView>/tableNoDataText}"
+						busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingThreshold="8" growingScrollToLoad="true"
+						updateFinished="onUpdateFinished" mode="SingleSelectLeft">
+						<headerToolbar>
+							<OverflowToolbar id="SearchToolbar">
+								<Text id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+								<ToolbarSpacer/>
+								<SearchField id="otel_searchSorting" liveChange="otel_onFilter" placeholder="Listelenen Oteller Arasında Ara (Otel Adı)">
+									<layoutData>
+										<OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/>
+									</layoutData>
+								</SearchField>
+								<OverflowToolbarToggleButton icon="sap-icon://vertical-grip" enabled="false"/>
+								<Button id="ekle" icon="sap-icon://add" text="Ekle" press="otelCreate"/>
+								<Button id="duzenle" icon="sap-icon://edit" text="Düzenle" press="otelUpdate"/>
+								<Button id="sil" icon="sap-icon://delete" text="Sil" press="otelDelete"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="otelno" width="6%">
+								<header>
+									<Label text="Otel No" id="label0"/>
+								</header>
+							</Column>
+							<Column width="20%" id="oteladi">
+								<header>
+									<Label text="Otel Adı" id="label1"/>
+								</header>
+							</Column>
+							<Column width="15%" id="oteltelefon">
+								<header>
+									<Label text="Otel Telefon" id="label2"/>
+								</header>
+							</Column>
+							<Column width="27%" id="otelurl">
+								<header>
+									<Label text="Otel Url" id="label3"/>
+								</header>
+							</Column>
+							<Column width="32%" id="oteladresi">
+								<header>
+									<Label text="Otel Adresi" id="label4"/>
+								</header>
+							</Column>
+							<Column width="10%" id="otelsehri">
+								<header>
+									<Label text="Otel Şehri" id="label5"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" id="listed1" press="onPress">
+								<cells>
+									<Text text="{path:'OtelNo', formatter:'.formatter.zeroClear'}" id="otel_no"/>
+									<Text text="{OtelAdi}" id="otel_adi"/>
+									<Text text="{path:'OtelTelefon', formatter:'.formatter.zeroClear'}" id="otel_telefon"/>
+									<Text text="{path:'OtelUrl', formatter:'.formatter.smallCaps'}" id="otel_url"/>
+									<Text text="{OtelAdresi}" id="otel_adresi"/>
+									<Text text="{OtelSehri}" id="otel_sehri"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<customData>
+							<sap.ui.core:CustomData key="w5g.dt.editable" value="true" xmlns:sap.ui.core="sap.ui.core" id="__data4"/>
+						</customData>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

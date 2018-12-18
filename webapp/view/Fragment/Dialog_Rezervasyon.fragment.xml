@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="createRezervasyonDialog" title="{i18n>RezervasyonEkle}" afterClose="onDialogAfterClose" draggable="true">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"
+			adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+			singleContainerFullSize="false">
+			<f:content>
+				<Label text="{i18n>rezervasyonno}" labelFor="rezervasyonno"/>
+				<Input type="Text" id="rezervasyonNo" liveChange="formChange"/>
+				<Label text="{i18n>musterisec}" labelFor="musteriList"/>
+				<Input id="musteriList" valueHelpRequest="musteriDialogOpen" showValueHelp="true" type="Text" valueHelpOnly="true">
+					<suggestionItems>
+						<core:Item key="01" text="01 - Ahmet Akkaya"/>
+						<core:Item key="02" text="02 - Hasan Akman"/>
+					</suggestionItems>
+				</Input>
+				<Label text="{i18n>rezervasyon_baslangic_tarihi}" labelFor="rezervasyon_start_date"/>
+				<DatePicker id="rezervasyon_start_date" placeholder="Başlangıç Tarihi" change="dateChange" class="sapUiSmallMarginBottom"/>
+				<Label text="{i18n>rezervasyon_bitis_tarihi}" labelFor="rezervasyon_end_date"/>
+				<DatePicker id="rezervasyon_end_date" placeholder="Bitiş Tarihi" change="dateChange" class="sapUiSmallMarginBottom"/>
+			</f:content>
+		</f:SimpleForm>
+		<buttons>
+			<Button text="{i18n>Kapat}" press="onCloseDialog" icon="sap-icon://decline"/>
+			<Button id="rezervasyonCreateButton" text="{i18n>Kaydet}" press="onPressCreateButton" icon="sap-icon://save" type="Accept" visible="false"/>
+			<Button id="rezervasyonUpdateButton" text="{i18n>BilgileriDuzenle}" press="onPressUpdateButton" icon="sap-icon://edit" type="Accept"
+				visible="false"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

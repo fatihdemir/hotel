@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar">
+	<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+		<fb:filterItems>
+			<fb:FilterItem name="oda_odano" label="Oda Numarası">
+				<fb:control>
+					<Input id="oda_OdaNoFiltre" type="Text" liveChange="oda_OdaNoFilter"/>
+				</fb:control>
+			</fb:FilterItem>
+		</fb:filterItems>
+	</fb:FilterBar>
+	<Table id="oda_table" noDataText="{worklistView>/tableNoDataText}" busy="{odaDataLoad>/busy}" busyIndicatorDelay="0" growing="true"
+		mode="SingleSelectLeft" items="{ path: 'Odalar' }" growingThreshold="8" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<headerToolbar>
+			<OverflowToolbar id="oda_SearchToolbar">
+				<!--<Text id="oda_tableHeader" text="{worklistView>/worklistTableTitle}"/>-->
+				<ToolbarSpacer/>
+				<SearchField id="oda_searchSorting" liveChange="oda_onFilter" placeholder="Listelenen Odalar Arasında Ara (Oda No)">
+					<layoutData>
+						<OverflowToolbarLayoutData minWidth="200px" maxWidth="300px" shrinkable="true"/>
+					</layoutData>
+				</SearchField>
+				<OverflowToolbarToggleButton icon="sap-icon://vertical-grip" enabled="false"/>
+				<Button id="oda_Ekle" icon="sap-icon://add" text="Ekle" press="odaCreate"/>
+				<Button id="oda_duzenle" icon="sap-icon://edit" text="Düzenle" press="odaUpdate"/>
+				<Button id="oda_sil" icon="sap-icon://delete" text="Sil" press="odaDelete"/>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="25%">
+				<header>
+					<Label text="Oda No"/>
+				</header>
+			</Column>
+			<Column width="25%">
+				<header>
+					<Label text="Otel Kat"/>
+				</header>
+			</Column>
+			<Column width="25%">
+				<header>
+					<Label text="Sigara İçilir"/>
+				</header>
+			</Column>
+			<Column width="25%">
+				<header>
+					<Label text="Oda Tipi"/>
+				</header>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" id="oda_Listed1" press="onPress">
+				<cells>
+					<Text text="{path:'OdaNo', formatter:'.formatter.zeroClear'}" id="oda_odano_text"/>
+					<Text text="{OdaKat}" id="oda_odakat_text"/>
+					<Text text="{path:'SigaraIcilir', formatter:'.formatter.SmokeStatus'}" id="oda_odasigara_text"/>
+					<Text text="{path:'OdaTipi', formatter:'.formatter.OdaType'}" id="oda_odatipi_text"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>
